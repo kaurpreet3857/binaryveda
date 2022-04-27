@@ -34,7 +34,8 @@ export default StyleSheet.create({
     },
     dashToggle: {
         justifyContent: 'space-between',
-        marginHorizontal: moderateScale(30)
+        marginHorizontal: moderateScale(30),
+        marginBottom: -10
     },
     dashText: {
         fontSize: moderateScale(14),
@@ -93,6 +94,7 @@ export default StyleSheet.create({
     pallette: {
         flexDirection: 'row',
         marginHorizontal: 17,
+        marginVertical: 20
     },
     palletteText: {
         fontSize: moderateScale(14),
@@ -127,5 +129,57 @@ export default StyleSheet.create({
         backgroundColor: colors.orange,
         height: equalBox,
         width: equalBox,
+    },
+    faeBox: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginHorizontal: moderateScale(57)
+    },
+    faeBox1: {
+        alignItems: 'center'
+    },
+    followCount: {
+        fontSize: moderateScale(24),
+        letterSpacing: 0,
+        fontFamily: FontFamily.condensedLight,
+    },
+    followers: {
+        fontSize: moderateScale(14),
+        letterSpacing: 0,
+        fontFamily: FontFamily.condensedLight,
+    },
+    lssBox: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginHorizontal: moderateScale(88)
+    },
+    likeCount: {
+        marginLeft: 5,
+        fontSize: moderateScale(18),
+        letterSpacing: 0,
+        fontFamily: FontFamily.ExtraLight,
+    },
+    uerBox: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginHorizontal: moderateScale(32),
+        marginBottom: moderateScale(21),
+        alignItems: 'center'
+    },
+    uerBox1: {
+        alignItems: 'center'
+    },
+    uploadsTxt: {
+        fontSize: moderateScale(14),
+        lineHeight: moderateScale(24),
+        letterSpacing: 0,
+        fontFamily: FontFamily.Medium,
+    },
+    exbTxt: {
+        fontSize: moderateScale(14),
+        lineHeight: moderateScale(24),
+        letterSpacing: 0,
+        fontFamily: FontFamily.Medium,
+        color: colors.warmGrey,
     },
 });

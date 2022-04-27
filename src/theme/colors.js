@@ -9,6 +9,7 @@ export default {
     yellow: '#ffb500',
     red: '#ff0000',
     mediumPurple: '#97448f',
-    orange: '#FFBF00'
+    orange: '#FFBF00',
+    warmGrey: '#878787',
 };
   

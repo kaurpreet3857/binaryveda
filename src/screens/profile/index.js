@@ -7,11 +7,11 @@ import {
     SafeAreaView,
     TouchableOpacity,
     FlatList,
+    Dimensions,
 } from 'react-native';
 
 import BlueEdit from '../../../assets/svg/blueEdit.svg';
 import Share from '../../../assets/svg/share.svg';
-import OvalDot from '../../../assets/svg/ovalDot.svg';
 import BlueUpload from '../../../assets/svg/blueUpload.svg';
 import Heart from '../../../assets/svg/heart.svg';
 import ShortAGC from '../../../assets/svg/shortAGC.svg';
@@ -72,18 +72,18 @@ const Profile = () => {
 
                 <View style={styles.line} />
 
-                <View style={[styles.flexRow,styles.faeBox]}>
+                <View style={styles.faeBox}>
                     <View style={styles.faeBox1}>
                         <Text style={styles.followCount}>2.3K</Text>
                         <Text style={styles.followers}>Followers</Text>
                     </View>
 
-                    <View style={styles.faeBox2}>
+                    <View style={styles.faeBox1}>
                         <Text style={styles.followCount}>50</Text>
                         <Text style={styles.followers}>Artworks</Text>
                     </View>
 
-                    <View style={styles.faeBox3}>
+                    <View style={styles.faeBox1}>
                         <Text style={styles.followCount}>21</Text>
                         <Text style={styles.followers}>Exhibitions</Text>
                     </View>
@@ -91,20 +91,20 @@ const Profile = () => {
 
                 <View style={styles.line} />
 
-                <View style={[styles.flexRow,styles.lssBox]}>
-                    <View style={styles.lssBox1}>
+                <View style={styles.lssBox}>
+                    <View style={styles.flexRow}>
                         <Heart />
                         <Text style={styles.likeCount}>120</Text>
                     </View>
 
-                    <View style={styles.lssBox2}>
+                    <View style={styles.flexRow}>
                         <UpArrow />
-                        <Text style={styles.sendCount}>43K</Text>
+                        <Text style={styles.likeCount}>43K</Text>
                     </View>
 
-                    <View style={styles.lssBox3}>
+                    <View style={styles.flexRow}>
                         <Share />
-                        <Text style={styles.shareCount}>2.3K</Text>
+                        <Text style={styles.likeCount}>2.3K</Text>
                     </View>
                 </View>
 
@@ -120,48 +120,55 @@ const Profile = () => {
                     <View style={styles.pallette5} />
                 </View>
 
-                <View style={[styles.flexRow,styles.uerBox]}>
+                <View style={[styles.uerBox]}>
                     <View style={styles.uerBox1}>
                         <BlackUpload />
-                        <Text style={styles.likeCount}>Uploads</Text>
+                        <Text style={styles.uploadsTxt}>Uploads</Text>
                     </View>
 
                     <View style={styles.uerBox1}>
                         <Exhibitions />
-                        <Text style={styles.likeCount}>Exhibitions</Text>
+                        <Text style={styles.exbTxt}>Exhibitions</Text>
                     </View>
 
                     <View style={styles.uerBox1}>
                         <Revenue />
-                        <Text style={styles.likeCount}>Revenue</Text>
+                        <Text style={styles.exbTxt}>Revenue</Text>
                     </View>
                 </View>
 
                 <FlatList
+                    style={{marginHorizontal: 18}}
                     data={[
-                        require('../../../assets/images/profilePlaceholder/profilePlaceholder.jpg'),
-                        require('../../../assets/images/profilePlaceholder/profilePlaceholder.jpg'),
-                        require('../../../assets/images/profilePlaceholder/profilePlaceholder.jpg'),
-                        require('../../../assets/images/profilePlaceholder/profilePlaceholder.jpg'),
-                        require('../../../assets/images/profilePlaceholder/profilePlaceholder.jpg'),
-                        require('../../../assets/images/profilePlaceholder/profilePlaceholder.jpg'),
+                        require('../../../assets/images/landingBanner.png'),
+                        require('../../../assets/images/landingBanner.png'),
+                        require('../../../assets/images/landingBanner.png'),
+                        require('../../../assets/images/landingBanner.png'),
+                        require('../../../assets/images/landingBanner.png'),
+                        require('../../../assets/images/landingBanner.png'),
                     ]}
                     showsVerticalScrollIndicator={false}
                     ItemSeparatorComponent={() => (
                         <View
                             style={{
-                                backgroundColor: 'red',
-                                height: 0.5,
+                                height: 6,
                             }}
                         />
                     )}
                     numColumns={2}
                     keyExtractor={(item) => item}
-                    renderItem={({ item }) => (
+                    renderItem={({ item, index }) => (
                         <View
                             key={item.id}
                             style={styles.profilePost}>
-                            <Image source={item} />
+                            <Image
+                                source={item}
+                                style={{
+                                    width: (Dimensions.get('screen').width-36)/2,
+                                    height: 167,
+                                    marginRight: 10
+                                }}
+                            />
                         </View>
                     )}
                 />
