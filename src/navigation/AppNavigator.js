@@ -13,16 +13,16 @@ function AppNavigator() {
             <Stack.Screen
                 name="Register"
                 component={Register}
-                // options={{ headerShown: false }}
+                options={{ headerShown: false }}
             />
             <Stack.Screen
                 name="Profile"
                 component={Profile}
-                // options={{ headerShown: false }}
+                options={{ headerShown: false }}
             />
         </Stack.Navigator>
     );
 }
 
-export default () => <AppNavigator />;
+export default AppNavigator;
 
