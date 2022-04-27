@@ -3,17 +3,168 @@ import {
     ScrollView,
     View,
     Text,
-    Platform,
-    TouchableOpacity
+    Image,
+    SafeAreaView,
+    TouchableOpacity,
+    FlatList,
 } from 'react-native';
+
+import BlueEdit from '../../../assets/svg/blueEdit.svg';
+import Share from '../../../assets/svg/share.svg';
+import OvalDot from '../../../assets/svg/ovalDot.svg';
+import BlueUpload from '../../../assets/svg/blueUpload.svg';
+import Heart from '../../../assets/svg/heart.svg';
+import ShortAGC from '../../../assets/svg/shortAGC.svg';
+import WhiteUserIcon from '../../../assets/svg/whiteUserIcon.svg';
+import Revenue from '../../../assets/svg/revenue.svg';
+import Exhibitions from '../../../assets/svg/exhibitions.svg';
+import PlusIcon from '../../../assets/svg/plusIcon.svg';
+import BlackUpload from '../../../assets/svg/blackUpload.svg';
+import UpArrow from '../../../assets/svg/upArrow.svg';
+import Menu from '../../../assets/svg/menu.svg';
 
 import styles from './styles';
 
 const Profile = () => {
     return (
-        <ScrollView contentContainerStyle={[styles.container]}>
-            <Text>HERE profile</Text>
-        </ScrollView>
+        <SafeAreaView style={{ flex: 1, backgroundColor: '#ffffff' }}>
+            <ScrollView contentContainerStyle={[styles.container]}>
+                <View style={styles.topLayer}>
+                    <ShortAGC />
+
+                    <View style={styles.topLayerRight}>
+                        <View style={styles.userIcon}>
+                            <WhiteUserIcon />
+                        </View>
+                        <PlusIcon />
+                        <Menu />
+                    </View>
+
+                </View>
+
+                <View style={styles.profilePicSec}>
+                    <TouchableOpacity disabled>
+                        <BlueUpload />
+                        <Text style={styles.uploadText}>Upload</Text>
+                    </TouchableOpacity>
+
+                    <Image source={require('../../../assets/images/profilePlaceholder/profilePlaceholder.jpg')} />
+
+                    <TouchableOpacity disabled>
+                        <BlueEdit />
+                        <Text style={styles.editText}>Edit</Text>
+                    </TouchableOpacity>
+                </View>
+
+                <Text style={styles.userName}>john.doe</Text>
+
+                <View style={styles.dashToggle}>
+                    <Text>
+                        My dashboard
+                    </Text>
+                    <View style={styles.greenToggle}>
+                        <OvalDot />
+                    </View>
+                </View>
+
+                <View style={styles.line} />
+
+                <View style={styles.faeBox}>
+                    <View style={styles.faeBox1}>
+                        <Text style={styles.followCount}>2.3K</Text>
+                        <Text style={styles.followers}>Followers</Text>
+                    </View>
+
+                    <View style={styles.faeBox2}>
+                        <Text style={styles.followCount}>50</Text>
+                        <Text style={styles.followers}>Artworks</Text>
+                    </View>
+
+                    <View style={styles.faeBox3}>
+                        <Text style={styles.followCount}>21</Text>
+                        <Text style={styles.followers}>Exhibitions</Text>
+                    </View>
+                </View>
+
+                <View style={styles.line} />
+
+                <View style={styles.lssBox}>
+                    <View style={styles.lssBox1}>
+                        <Heart />
+                        <Text style={styles.likeCount}>120</Text>
+                    </View>
+
+                    <View style={styles.lssBox2}>
+                        <UpArrow />
+                        <Text style={styles.sendCount}>43K</Text>
+                    </View>
+
+                    <View style={styles.lssBox3}>
+                        <Share />
+                        <Text style={styles.shareCount}>2.3K</Text>
+                    </View>
+                </View>
+
+                <View style={styles.pallette}>
+                    <View style={styles.pallette1}>
+                        <Text style={styles.palletteText}>
+                            pallette
+                        </Text>
+                    </View>
+                    <View style={styles.pallette2} />
+                    <View style={styles.pallette3} />
+                    <View style={styles.pallette4} />
+                    <View style={styles.pallette5} />
+                </View>
+
+                <View style={styles.uerBox}>
+                    <View style={styles.uerBox1}>
+                        <BlackUpload />
+                        <Text style={styles.likeCount}>Uploads</Text>
+                    </View>
+
+                    <View style={styles.uerBox1}>
+                        <Exhibitions />
+                        <Text style={styles.likeCount}>Exhibitions</Text>
+                    </View>
+
+                    <View style={styles.uerBox1}>
+                        <Revenue />
+                        <Text style={styles.likeCount}>Revenue</Text>
+                    </View>
+                </View>
+
+                <FlatList
+                    data={[
+                        require('../../../assets/images/profilePlaceholder/profilePlaceholder.jpg'),
+                        require('../../../assets/images/profilePlaceholder/profilePlaceholder.jpg'),
+                        require('../../../assets/images/profilePlaceholder/profilePlaceholder.jpg'),
+                        require('../../../assets/images/profilePlaceholder/profilePlaceholder.jpg'),
+                        require('../../../assets/images/profilePlaceholder/profilePlaceholder.jpg'),
+                        require('../../../assets/images/profilePlaceholder/profilePlaceholder.jpg'),
+                    ]}
+                    showsVerticalScrollIndicator={false}
+                    ItemSeparatorComponent={() => (
+                        <View
+                            style={{
+                                backgroundColor: 'red',
+                                height: 0.5,
+                            }}
+                        />
+                    )}
+                    numColumns={2}
+                    keyExtractor={(item) => item}
+                    renderItem={({ item }) => (
+                        <View
+                            key={item.id}
+                            style={styles.profilePost}>
+                            <Image source={item} />
+                        </View>
+                    )}
+                />
+
+            </ScrollView>
+        </SafeAreaView>
     );
 };
 
