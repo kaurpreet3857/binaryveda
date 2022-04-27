@@ -4,6 +4,13 @@ import { moderateScale } from '../../config/responsiveFonts';
 import colors from '../../theme/colors';
 
 export default StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#ffffff',
+  },
+  scrollContainer: {
+    paddingTop: 10,
+  },
   logoSetting: {
     paddingHorizontal: moderateScale(24)
   },

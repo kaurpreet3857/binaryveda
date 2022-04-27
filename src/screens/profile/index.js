@@ -27,8 +27,8 @@ import styles from './styles';
 
 const Profile = () => {
     return (
-        <SafeAreaView style={{ flex: 1, backgroundColor: '#ffffff' }}>
-            <ScrollView contentContainerStyle={[styles.container]}>
+        <SafeAreaView style={styles.container}>
+            <ScrollView showsVerticalScrollIndicator={false} style={styles.scrollContainer}>
                 <View style={styles.topLayer}>
                     <ShortAGC />
 
@@ -109,15 +109,15 @@ const Profile = () => {
                 </View>
 
                 <View style={styles.pallette}>
-                    <View style={styles.pallette1}>
+                    <View style={[styles.palletteCommon, styles.pallette1]}>
                         <Text style={styles.palletteText}>
                             pallette
                         </Text>
                     </View>
-                    <View style={styles.pallette2} />
-                    <View style={styles.pallette3} />
-                    <View style={styles.pallette4} />
-                    <View style={styles.pallette5} />
+                    <View style={[styles.palletteCommon, styles.pallette2]} />
+                    <View style={[styles.palletteCommon, styles.pallette3]} />
+                    <View style={[styles.palletteCommon, styles.pallette4]} />
+                    <View style={[styles.palletteCommon, styles.pallette5]} />
                 </View>
 
                 <View style={[styles.uerBox]}>
@@ -138,7 +138,7 @@ const Profile = () => {
                 </View>
 
                 <FlatList
-                    style={{marginHorizontal: 18}}
+                    style={{marginHorizontal: 18, paddingBottom: 20}}
                     data={[
                         require('../../../assets/images/landingBanner.png'),
                         require('../../../assets/images/landingBanner.png'),

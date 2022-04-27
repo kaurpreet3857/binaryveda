@@ -81,8 +81,8 @@ const loremIpsumText = [
 
 const Register = ({ navigation }) => {
     return (
-        <SafeAreaView style={{ flex: 1, backgroundColor: '#ffffff' }}>
-            <ScrollView showsVerticalScrollIndicator={false}>
+        <SafeAreaView style={styles.container}>
+            <ScrollView showsVerticalScrollIndicator={false} style={styles.scrollContainer}>
 
                 <View style={styles.logoSetting}><Logo /></View>
 
@@ -177,7 +177,7 @@ const Register = ({ navigation }) => {
 
                 <View style={styles.line} />
 
-                <View style={[styles.flexRow]}>
+                <View style={[styles.flexRow, {paddingBottom: 20}]}>
                     <Copyright />
                     <Text style={[styles.copyrightContent]}>
                         Content Copyright reserved.

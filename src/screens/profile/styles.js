@@ -6,6 +6,13 @@ import colors from '../../theme/colors';
 const equalBox = (Dimensions.get('screen').width-34)/5;
 
 export default StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#ffffff',
+    },
+    scrollContainer: {
+        paddingVertical: 10
+    },
     flexRow: {
         flexDirection: 'row',
         justifyContent: 'center',
@@ -105,30 +112,24 @@ export default StyleSheet.create({
     },
     pallette1: {
         backgroundColor: colors.mediumPurple,
-        height: equalBox,
-        width: equalBox,
         alignItems: 'center',
         justifyContent: 'center',
     },
+    palletteCommon: {
+        width: equalBox,
+        height: 42
+    },
     pallette2: {
         backgroundColor: colors.cherry,
-        height: equalBox,
-        width: equalBox,
     },
     pallette3: {
         backgroundColor: colors.red,
-        height: equalBox,
-        width: equalBox,
     },
     pallette4: {
         backgroundColor: colors.yellow,
-        height: equalBox,
-        width: equalBox,
     },
     pallette5: {
         backgroundColor: colors.orange,
-        height: equalBox,
-        width: equalBox,
     },
     faeBox: {
         flexDirection: 'row',
