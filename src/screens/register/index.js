@@ -25,9 +25,8 @@ import BlueArrow from '../../../assets/svg/blueArrow.svg';
 import AgcHorizontal from '../../../assets/svg/agcHorizontal.svg';
 import Copyright from '../../../assets/svg/copyright.svg';
 
-import { moderateScale } from '../../config/responsiveFonts';
-
 import styles from './styles';
+import colors from '../../theme/colors';
 
 const loremIpsumText = [
     {
@@ -102,7 +101,7 @@ const Register = ({ navigation }) => {
                 <View style={styles.regBtnBox}>
                     <View style={styles.regBtnOuter}>
                         <TouchableOpacity
-                            style={styles.regBtn}
+                            style={styles.flexRow}
                             onPress={() => {
                                 navigation.push('Profile');
                             }}
@@ -114,7 +113,8 @@ const Register = ({ navigation }) => {
                     <Text style={styles.asCollector}>me as a collector</Text>
                 </View>
 
-                <View>
+                <View style={[styles.trackAppOuter, styles.flexRow]}>
+                    <BlueArrow />
                     <Text style={styles.trackApp}>
                         track my application
                     </Text>
@@ -122,49 +122,54 @@ const Register = ({ navigation }) => {
 
                 <FlatList
                     data={loremIpsumText}
+                    contentContainerStyle={styles.flatlistMargin}
                     showsVerticalScrollIndicator={false}
                     ItemSeparatorComponent={() => (
                         <View
                             style={{
-                                backgroundColor: 'red',
-                                height: 0.5,
+                                height: 68,
                             }}
                         />
                     )}
                     keyExtractor={(item) => item.id}
                     renderItem={({ item }) => (
-                        <View
-                            key={item.id}
-                            style={{
-                            }}>
-                            <Text>
+                        <View key={item.id}>
+                            <View style={styles.flatlistSvg}>{item.svg}
+                            </View>
+                            <Text style={styles.flatlistTitle}>
                                 {item.title}
                             </Text>
-                            <Text>
+                            <Text style={styles.flatlistDesc}>
                                 {item.desc}
                             </Text>
                         </View>
                     )}
                 />
 
-                <View style={styles.icons}>
+                <View style={[styles.flexRow, styles.icons]}>
                     <Image source={require('../../../assets/images/fbIcon/fbIcon.jpg')} />
+                    <View style={{width: 10}} />
                     <Image source={require('../../../assets/images/igIcon/igIcon.jpg')} />
                 </View>
 
                 <View style={styles.line} />
 
-                <View>
-                    <AgcHorizontal />
-                    <View>
-                        <Text>
+                <View style={{alignItems: 'center'}}>
+                    <AgcHorizontal height={28} width={255} />
+                    <View style={[styles.flexRow, {marginTop: 18}]}>
+                        <Text style={styles.aboutUs}>
                             About Us.
+                            {'\n'}
                             Team.
+                            {'\n'}
                             Reach us.
                         </Text>
-                        <Text>
+                        <View style={{width: 120}} />
+                        <Text style={styles.aboutUs}>
                             Affiliattions.
+                            {'\n'}
                             Disclaimers.
+                            {'\n'}
                             Privacy Policy.
                         </Text>
                     </View>
@@ -172,9 +177,9 @@ const Register = ({ navigation }) => {
 
                 <View style={styles.line} />
 
-                <View>
+                <View style={[styles.flexRow]}>
                     <Copyright />
-                    <Text>
+                    <Text style={[styles.copyrightContent]}>
                         Content Copyright reserved.
                     </Text>
                 </View>

@@ -32,44 +32,47 @@ const Profile = () => {
                 <View style={styles.topLayer}>
                     <ShortAGC />
 
-                    <View style={styles.topLayerRight}>
-                        <View style={styles.userIcon}>
-                            <WhiteUserIcon />
-                        </View>
-                        <PlusIcon />
-                        <Menu />
+                    <View />
+
+                    <View style={styles.userIcon}>
+                        <WhiteUserIcon />
                     </View>
+                    <PlusIcon />
+                    <Menu />
 
                 </View>
 
-                <View style={styles.profilePicSec}>
+                <View style={[styles.flexRow, styles.profilePicSec]}>
                     <TouchableOpacity disabled>
                         <BlueUpload />
                         <Text style={styles.uploadText}>Upload</Text>
                     </TouchableOpacity>
 
-                    <Image source={require('../../../assets/images/profilePlaceholder/profilePlaceholder.jpg')} />
+                    <Image source={require('../../../assets/images/profilePlaceholder/profilePlaceholder.jpg')} style={{width: 127, height: 127}} />
 
                     <TouchableOpacity disabled>
                         <BlueEdit />
-                        <Text style={styles.editText}>Edit</Text>
+                        <Text style={styles.uploadText}>Edit</Text>
                     </TouchableOpacity>
                 </View>
 
                 <Text style={styles.userName}>john.doe</Text>
 
-                <View style={styles.dashToggle}>
-                    <Text>
+                <View style={[styles.flexRow, styles.dashToggle]}>
+                    <Text style={styles.dashText}>
                         My dashboard
                     </Text>
                     <View style={styles.greenToggle}>
-                        <OvalDot />
+                        <View style={styles.toggleBG} />
+                        <View style={styles.shadow}>
+                            <View style={styles.dot} />
+                        </View>
                     </View>
                 </View>
 
                 <View style={styles.line} />
 
-                <View style={styles.faeBox}>
+                <View style={[styles.flexRow,styles.faeBox]}>
                     <View style={styles.faeBox1}>
                         <Text style={styles.followCount}>2.3K</Text>
                         <Text style={styles.followers}>Followers</Text>
@@ -88,7 +91,7 @@ const Profile = () => {
 
                 <View style={styles.line} />
 
-                <View style={styles.lssBox}>
+                <View style={[styles.flexRow,styles.lssBox]}>
                     <View style={styles.lssBox1}>
                         <Heart />
                         <Text style={styles.likeCount}>120</Text>
@@ -117,7 +120,7 @@ const Profile = () => {
                     <View style={styles.pallette5} />
                 </View>
 
-                <View style={styles.uerBox}>
+                <View style={[styles.flexRow,styles.uerBox]}>
                     <View style={styles.uerBox1}>
                         <BlackUpload />
                         <Text style={styles.likeCount}>Uploads</Text>
